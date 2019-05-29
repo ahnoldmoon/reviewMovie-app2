@@ -2,76 +2,16 @@ import React, {Component} from 'react';
 import './App.css';
 import Movie from './Movie';
 
-// function App() {
-//   return (
-//     <div className="App">
-//       hello!!
-//     </div>
-//   );
-// }
-
-// const movieTitles = [
-//   "Matrix",
-//   "Full Metal Jacket",
-//   "Oldboy",
-//   "Star Wars"
-// ]
-
-// const movieImages = [
-//   "https://upload.wikimedia.org/wikipedia/en/thumb/c/c1/The_Matrix_Poster.jpg/220px-The_Matrix_Poster.jpg",
-//   "https://images-na.ssl-images-amazon.com/images/I/91A%2B9lmEcxL._SX342_.jpg",
-//   "https://upload.wikimedia.org/wikipedia/en/thumb/6/67/Oldboykoreanposter.jpg/220px-Oldboykoreanposter.jpg",
-//   "https://i.ytimg.com/vi/ngElkyQ6Rhs/hqdefault.jpg"
-// ]
-
-
-
 class App extends Component{
-
-  // componentWillMount(){
-  //   console.log('will mount')
-  // }
-
-  // componentDidMount(){
-  //   console.log('did mount')
-  // }
 
   state = {
   }
 
   componentDidMount(){
-    // setTimeout(() => {
-    //   this.setState({
-    //     greeting: 'Hello again!!!'
-    //   })
-    // }, 3000)
-    // setTimeout(() => {
-    //   this.setState({
-    //     movies: [
-    //       {
-    //         title: "Matrix",
-    //         poster: "https://upload.wikimedia.org/wikipedia/en/thumb/c/c1/The_Matrix_Poster.jpg/220px-The_Matrix_Poster.jpg"
-    //       },
-    //       {
-    //         title: "Full Metal Jacket",
-    //         poster: "https://images-na.ssl-images-amazon.com/images/I/91A%2B9lmEcxL._SX342_.jpg"
-    //       },
-    //       {
-    //         title: "Oldboy",
-    //         poster: "https://upload.wikimedia.org/wikipedia/en/thumb/6/67/Oldboykoreanposter.jpg/220px-Oldboykoreanposter.jpg"
-    //       },
-    //       {
-    //         title: "Star Wars",
-    //         poster: "https://i.ytimg.com/vi/ngElkyQ6Rhs/hqdefault.jpg"
-    //       },
-    //       {
-    //         title: "Trainspotting",
-    //         poster: "https://secure.i.telegraph.co.uk/multimedia/archive/02809/TRAINSPOTTING_2809300b.jpg"
-    //       }
-    //     ]
-    //   })
-    // },2000)
-    console.log(fetch('https://yts.am/api/v2/list_movies.json?sort_by=rating'))
+    fetch('https://yts.am/api/v2/list_movies.json?sort_by=rating')
+    .then(munnt => munnt.json())
+    .then(json => console.log(json))
+    .catch(err => console(err))
   }
 
   _renderMovies = () => {
