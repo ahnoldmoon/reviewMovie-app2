@@ -33,7 +33,7 @@ class App extends Component{
   }
 
   _callApi = () => {
-    return fetch('https://yts.am/api/v2/list_movies.json?sort_by=rating')
+    return fetch('https://yts.am/api/v2/list_movies.json?sort_by=download count')
     .then(munnt => munnt.json())
     .then(json => json.data.movies)
     .catch(err => console(err))
@@ -41,8 +41,9 @@ class App extends Component{
 
   render(){
     // console.log('did render')
+    const { movies } = this.state;
     return (
-      <div className="App">
+      <div className={movies ? "App" : "App--loading"}>
         {this.state.movies ? this._renderMovies() : 'Loading'}
       </div>
     );
